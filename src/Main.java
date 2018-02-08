@@ -26,7 +26,7 @@ public class Main {
                 case 1:
                     System.out.println("enter num ..");
                     int q = sc.nextInt();
-                    firstTask(q);
+                    numCounter(q);
                     break;
 
                 case 2:
@@ -59,7 +59,7 @@ public class Main {
                 case 5:
                     System.out.println("enter num ..");
                     int l = sc.nextInt();
-                    fifthTask(l, 1);
+                    numCounteRecursion(l, 1);
                     break;
 
                 case 6:
@@ -81,7 +81,7 @@ public class Main {
     }
 
     // 1
-    public static void firstTask(int b){
+    public static void numCounter(int b){
         for (int i = 1; i <= b; i ++){
             System.out.println(i);
         }
@@ -122,16 +122,15 @@ public class Main {
     }
 
     //5
-    public static void fifthTask(int x, int b){
+    public static void numCounteRecursion(int x, int b){
         System.out.println(b);
         b++;
         if (b <= x){
-            fifthTask(x, b);
+            numCounteRecursion(x, b);
         }
     }
 
     //6
-
     public static void drawLineRecursion(int width, int counter){
         System.out.print("x");
         counter++;
