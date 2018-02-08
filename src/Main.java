@@ -10,11 +10,12 @@ public class Main {
 
         while (status){
             System.out.println();
-            System.out.println("1. first task");
+            System.out.println("1. counter");
             System.out.println("2. draw rect");
+            System.out.println("3. draw square");
             System.out.println("4. getMax");
-            System.out.println("5. fifth task");
-            System.out.println("6. sixth task");
+            System.out.println("5. counter recursion");
+            System.out.println("6. draw rect recursion");
 
             taskSelect = sc.nextInt();
 
@@ -24,23 +25,35 @@ public class Main {
                     System.out.println("enter num ..");
                     int q = sc.nextInt();
                     firstTask(q);
+                    
 
                     break;
 
                 case 2:
-                    System.out.println("enter num ..");
+                    System.out.println("enter width ..");
+                    int width = sc.nextInt();
+
+                    System.out.println("enter height ..");
+                    int height = sc.nextInt();
+
+                    drawSquare(width, height);
+
+                    break;
+
+                case 3:
+                    System.out.println("enter side of the square ..");
                     int squareWidth = sc.nextInt();
                     drawRect(squareWidth);
                     break;
 
                 case 4:
                     System.out.println("first num ..");
-                    int a = sc.nextInt();
+                    float a = sc.nextFloat();
 
                     System.out.println("second num ..");
-                    int b = sc.nextInt();
+                    float b = sc.nextFloat();
 
-                    System.out.println("max num" + GetMax(a, b));
+                    System.out.println("max num: " + GetMax(a, b));
                     break;
 
                 case 5:
@@ -50,10 +63,13 @@ public class Main {
                     break;
 
                 case 6:
-                    System.out.println("enter num ..");
-                    int sqWidth = sc.nextInt();
-                    //  sixthTask(sqWidth, 1);
-                    sixthLast(sqWidth, 1);
+                    System.out.println("enter width ..");
+                    int rectWidth = sc.nextInt();
+
+                    System.out.println("enter height");
+                    int rectHeight = sc.nextInt();
+
+                    drawRectangleRecursion(rectWidth, rectHeight, 1);
                     break;
             }
         }
@@ -73,18 +89,24 @@ public class Main {
         }
     }
 
-    public static void drawRect(int c){
-        for(int i = 0; i < c; i++){
-            drawLine(c, '_');
+    public static void drawSquare(int width, int height){
+        for(int i = 0; i < height; i++){
+            drawLine(width, 'x');
             System.out.println();
         }
     }
 
-    // 3 https://app.schoology.com/assignment/1366565253/info task s empty)
+    // 3
+    public static void drawRect(int c){
+        for(int i = 0; i < c; i++){
+            drawLine(c, '*');
+            System.out.println();
+        }
+    }
 
     // 4
-    public static int GetMax(int a, int b){
-        int c = 0;
+    public static float GetMax(float a, float b){
+        float c = 0;
 
         if (a > b){
             c = a;
@@ -105,23 +127,21 @@ public class Main {
 
     //6
 
-    public static void sixthTask(int WIDTH, int counter){
-        System.out.print("X");
-
-        //rSystem.out.println("counter: " + counter);
-
-        if (WIDTH > counter){
-            counter += 1;
-            sixthTask(WIDTH, counter);
+    public static void drawLineRecursion(int width, int counter){
+        System.out.print("x");
+        counter++;
+        if(counter <= width){
+            drawLineRecursion(width, counter);
         }
     }
 
-    public static void sixthLast(int x, int counter){
-        sixthTask(x, 1);
+    public static void drawRectangleRecursion(int width, int height, int counter){
+        drawLineRecursion(width, 1);
         System.out.println();
-        if (x > counter){
-            counter++;
-            sixthLast(x, counter);
+        counter++;
+        if (counter <= height){
+            drawRectangleRecursion(width, height, counter);
         }
     }
+
 }
