@@ -17,6 +17,8 @@ public class Main {
             System.out.println("5. counter recursion");
             System.out.println("6. draw rect recursion");
 
+            System.out.println("9. exit");
+
             taskSelect = sc.nextInt();
 
             switch (taskSelect){
@@ -25,8 +27,6 @@ public class Main {
                     System.out.println("enter num ..");
                     int q = sc.nextInt();
                     firstTask(q);
-                    
-
                     break;
 
                 case 2:
@@ -70,6 +70,11 @@ public class Main {
                     int rectHeight = sc.nextInt();
 
                     drawRectangleRecursion(rectWidth, rectHeight, 1);
+                    break;
+
+                case 9:
+                    System.out.println("EXIT");
+                    status = false;
                     break;
             }
         }
